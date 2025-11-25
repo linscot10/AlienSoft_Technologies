@@ -1,6 +1,9 @@
 # Product Management Dashboard
 ![Login page](image.png)
 ![view products page](image-1.png)
+
+
+Three‑dots menu / action button lets the user view the product details page.
 Three‑dots menu / action button lets the user view the product details page.
 ![view product page](image-2.png)
 ![New product page](image-3.png)
