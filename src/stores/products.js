@@ -14,9 +14,9 @@ export const useProductsStore = defineStore('products', {
       this.isLoading = true
       this.error = null
       try {
-        // Basic list - you can extend with search queries
+        
         const res = await axios.get(`${API_BASE}/products${query}`)
-        // DummyJSON returns { products: [...], total, limit, skip }
+        
         this.products = res.data.products
       } catch (err) {
         this.error = 'Failed to load products'

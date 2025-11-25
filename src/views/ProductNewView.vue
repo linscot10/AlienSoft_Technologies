@@ -241,15 +241,14 @@ export default {
       }
     }
 
-    // Convert image to base64 for API (DummyJSON accepts URLs or base64)
+   
     const getImageData = async () => {
       if (thumbnailUrl.value) {
         return thumbnailUrl.value
       }
       
       if (imageFile.value) {
-        // For DummyJSON, we'll use a placeholder since it doesn't actually store images
-        // In a real app, you'd upload to a service like Cloudinary or AWS S3
+        
         return imagePreview.value
       }
 

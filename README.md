@@ -22,8 +22,8 @@ A Vue 3 + Vite application implementing authentication, product browsing, filter
 ### 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
+git clone https://github.com/linscot10/AlienSoft_Technologies.git
+cd vue-task
 ```
 
 ### 2. **Install Dependencies**
@@ -102,8 +102,8 @@ DummyJSON requires the following for testing:
 **Default Credentials (used if fields are empty):**
 
 ```
-username: kminchelle
-password: 0lelplR
+username: emilys
+password: emilyspass
 ```
 
 The app stores the session in Pinia and redirects unauthorized users back to `/login`.
@@ -127,40 +127,7 @@ dist/
 
 ## 🌐 Deploy to GitHub Pages
 
-### 1. Push your project to a GitHub repository
 
-### 2. Install the GitHub Pages deploy package
-
-```bash
-npm install gh-pages --save-dev
-```
-
-### 3. Add deploy scripts to `package.json`
-
-```json
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "deploy": "gh-pages -d dist"
-}
-```
-
-### 4. Configure Vite for GitHub Pages
-
-In `vite.config.js`, set the correct base path:
-
-```js
-export default defineConfig({
-  base: '/YOUR_REPO_NAME/',
-})
-```
-
-### 5. Build and deploy
-
-```bash
-npm run build
-npm run deploy
 ```
 
 Your site will be live at:
