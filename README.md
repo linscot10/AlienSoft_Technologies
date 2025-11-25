@@ -1,6 +1,7 @@
 # Product Management Dashboard
 ![Login page](image.png)
 ![view products page](image-1.png)
+Three‑dots menu / action button lets the user view the product details page.
 ![view product page](image-2.png)
 ![New product page](image-3.png)
 
@@ -46,7 +47,7 @@ http://localhost:5173
 
 ---
 
-## 🏗 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -78,7 +79,7 @@ src/
 
 ---
 
-## 🔧 Environment Variables
+##  Environment Variables
 
 No external environment variables are required.
 The app uses the public DummyJSON API:
@@ -95,7 +96,7 @@ VITE_API_URL=https://dummyjson.com
 
 ---
 
-## 🔐 Authentication
+##  Authentication
 
 DummyJSON requires the following for testing:
 
@@ -110,7 +111,7 @@ The app stores the session in Pinia and redirects unauthorized users back to `/l
 
 ---
 
-## 📦 Build for Production
+##  Build for Production
 
 ```bash
 npm run build
@@ -130,13 +131,14 @@ dist/
 
 ```
 
-Your site will be live at:
+ site is  live at:
 
 ```
-https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/
+ https://linscot10.github.io/AlienSoft_Technologies/
 ```
 
 ---
+
 
 ## 📌 Assumptions
 
