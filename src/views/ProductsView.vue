@@ -47,19 +47,19 @@
 
       <!-- Navigation -->
       <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors">
+        <router-link to="/" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors">
           <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
           </svg>
           <span class="font-medium">Dashboard</span>
-        </a>
+        </router-link>
         
-        <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-indigo-50 text-primary transition-colors">
+        <router-link to="/products" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-indigo-50 text-primary transition-colors">
           <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
             <path d="M3 3h18v4H3V3zm0 6h18v12H3V9z"/>
           </svg>
           <span class="font-medium">Products</span>
-        </a>
+        </router-link>
 
         <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors">
           <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,7 +86,10 @@
           <span class="font-medium">Settings</span>
         </a>
         
-        <button class="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-primary text-white rounded-lg font-semibold hover:opacity-90 transition-all">
+        <button 
+          @click="handleLogout"
+          class="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-primary text-white rounded-lg font-semibold hover:opacity-90 transition-all"
+        >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
           </svg>
@@ -299,12 +302,14 @@
 import Spinner from '../components/Spinner.vue'
 import { ref, computed, onMounted } from 'vue'
 import { useProductsStore } from '../stores/products'
+import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
 
 export default {
   components: { Spinner },
   setup() {
     const productsStore = useProductsStore()
+    const authStore = useAuthStore()
     const router = useRouter()
     const search = ref('')
     const category = ref('')
@@ -351,7 +356,31 @@ export default {
       router.push({ name: 'ProductNew' })
     }
 
-    return { search, category, stockStatus, categories, filtered, view, goAdd, loading, sidebarOpen }
+    const handleLogout = () => {
+      // Call logout action from auth store
+      authStore.logout()
+      
+      // Close sidebar if mobile
+      sidebarOpen.value = false
+      
+      // Redirect to login page
+      router.push({ name: 'Login' })
+      
+      console.log('User logged out successfully')
+    }
+
+    return { 
+      search, 
+      category, 
+      stockStatus, 
+      categories, 
+      filtered, 
+      view, 
+      goAdd, 
+      loading, 
+      sidebarOpen,
+      handleLogout
+    }
   }
 }
 </script>
